@@ -1,0 +1,95 @@
+.main {
+    background-image: url('../../assets/image/ima.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 98vh;
+}
+
+.mainForMenu {
+    margin: 0;
+    background-color: #0064001a;
+    min-height: 98vh;
+}
+
+.back {
+    cursor: pointer;
+    width: fit-content;
+    padding: 2%;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+}
+
+.form-section {
+    width: 100%;
+    display: flex;
+}
+
+.restaurantsInfoForm {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin: auto;
+
+}
+
+.formGroup {
+    display: flex;
+    justify-content: space-between;
+    padding: 1%;
+    flex-wrap: wrap;
+    height: 25px;
+    align-items: center;
+}
+
+.formGroup input {
+    width: 50%;
+    height: 25px;
+}
+
+.input-error {
+    border-color: red;
+    border-width: 2px;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.875em;
+}
+
+.submitBtn button {
+    padding: 1%;
+    background-color: #e85112;
+    border: 0px;
+    border-radius: 7px;
+    font-size: medium;
+    margin: 6.5px;
+
+
+}
+
+.addNewBtn {
+    width: 100%;
+}
+
+.formFields {
+    height: 60px;
+}
+
+.row {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    padding: 1%;
+    // flex-wrap: wrap;
+    height: 60px;
+    align-items: center;
+
+    .operationalTime input {
+        margin: 0 20px;
+        height: 25px;
+    }
+}

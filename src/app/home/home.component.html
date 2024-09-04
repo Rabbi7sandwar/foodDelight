@@ -1,0 +1,41 @@
+<div class="main">
+    <div class="tableSection">
+        <div *ngIf="restaurants.length > 0">
+            <div class="title">
+                <h2>Restaurants List</h2>
+            </div>
+            <table border="1" cellpadding="10" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Restaurant Name</th>
+                        <th>Owner Name</th>
+                        <th>Address</th>
+                        <th>Contact Number</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of restaurants">
+                        <td>{{ item.resturantName }}</td>
+                        <td>{{ item.ownerName }}</td>
+                        <td>{{ item.address }}</td>
+                        <td>{{ item.contactNo }}</td>
+                        <td>
+                            <button class="editBtn" (click)="edit(item)">Edit</button>
+                            <button class="editBtn" (click)="generatePdf(item)">View</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div *ngIf="restaurants.length == 0">
+            <p>No data available. Please submit the form.</p>
+        </div>
+    </div>
+    <div class="fixedAddBtn">
+        <div type="button" (click)="goToForm()">
+            <i class="fa-solid fa-plus"></i>
+        </div>
+    </div>
+</div>

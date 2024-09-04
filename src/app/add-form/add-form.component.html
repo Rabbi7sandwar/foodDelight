@@ -1,0 +1,240 @@
+<div ngClass="main" [ngClass]="!next? 'main' : 'mainForMenu'">
+    <div class="back">
+        <h3 (click)="back()"><img src="../../assets/arrow-left-solid.svg" width="10">&nbsp;<span>Back to list</span>
+        </h3>
+    </div>
+    <div class="form-section restaurantsInfoForm">
+        <div class="title" *ngIf="!next">
+            <h2> Register your Restaurant</h2>
+        </div>
+        <form [formGroup]="addForm" (ngSubmit)="onSave()" *ngIf="!next">
+            <!-- Restaurant Name -->
+            <div class="formFields">
+                <div class="formGroup">
+                    <label for="resturantName">Restaurant Name</label>
+                    <input id="resturantName" formControlName="resturantName" maxlength="60">
+                </div>
+                <div *ngIf="addForm.get('resturantName')?.invalid && (addForm.get('resturantName')?.touched)">
+                    <small *ngIf="addForm.get('resturantName')?.errors?.['required']" class="error-message">Restaurant
+                        Name is
+                        required.</small>
+                    <small *ngIf="addForm.get('resturantName')?.errors?.['maxlength']" class="error-message">Max length
+                        is 60
+                        characters.</small>
+                </div>
+            </div>
+
+            <!-- Owner Name -->
+            <div class="formFields">
+                <div class="formGroup">
+                    <label for="ownerName">Owner Name</label>
+                    <input id="ownerName" formControlName="ownerName" maxlength="30">
+
+                </div>
+                <div *ngIf="addForm.get('ownerName')?.invalid && (addForm.get('ownerName')?.touched )">
+                    <small *ngIf="addForm.get('ownerName')?.errors?.['required']" class="error-message">Owner Name is
+                        required.</small>
+                    <small *ngIf="addForm.get('ownerName')?.errors?.['maxlength']" class="error-message">Max length is
+                        30 characters.</small>
+                    <small *ngIf="addForm.get('ownerName')?.errors?.['pattern']" class="error-message">Only text is
+                        allowed.</small>
+                </div>
+
+            </div>
+            <!-- Email -->
+            <div class="formFields">
+                <div class="formGroup">
+                    <label for="email">Email</label>
+                    <input id="email" formControlName="email" maxlength="60">
+
+
+                </div>
+                <div *ngIf="addForm.get('email')?.invalid && (addForm.get('email')?.touched )">
+                    <small *ngIf="addForm.get('email')?.errors?.['required']" class="error-message">Email is
+                        required.</small>
+                    <small *ngIf="addForm.get('email')?.errors?.['email']" class="error-message">Invalid email
+                        format.</small>
+                </div>
+            </div>
+
+            <!-- Contact Number -->
+            <div class="formFields">
+                <div class="formGroup">
+                    <label for="contactNo">Contact Number</label>
+                    <input id="contactNo" formControlName="contactNo" maxlength="10">
+
+                </div>
+                <div *ngIf="addForm.get('contactNo')?.invalid && (addForm.get('contactNo')?.touched )">
+                    <small *ngIf="addForm.get('contactNo')?.errors?.['required']" class="error-message">Contact Number
+                        is required.</small>
+                    <small *ngIf="addForm.get('contactNo')?.errors?.['pattern']" class="error-message">Contact Number
+                        should be 10
+                        digits.</small>
+                </div>
+            </div>
+            <!-- Website -->
+            <div class="formFields">
+                <div class="formGroup">
+                    <label for="website">Website</label>
+                    <input id="website" formControlName="website" maxlength="60">
+
+                </div>
+                <div *ngIf="addForm.get('website')?.invalid && (addForm.get('website')?.touched )">
+                    <small *ngIf="addForm.get('website')?.errors?.['required']" class="error-message">Website is
+                        required.</small>
+                    <small *ngIf="addForm.get('website')?.errors?.['pattern']" class="error-message">Website URL should
+                        start with http:// or
+                        https://.</small>
+                </div>
+            </div>
+
+            <!-- Cuisine -->
+            <div class="formFields">
+                <div class="formGroup">
+                    <label for="cuisine">Cuisine</label>
+                    <input id="cuisine" formControlName="cuisine" maxlength="30">
+
+                </div>
+                <div *ngIf="addForm.get('cuisine')?.invalid && (addForm.get('cuisine')?.touched )">
+                    <small *ngIf="addForm.get('cuisine')?.errors?.['required']" class="error-message">Cuisine is
+                        required.</small>
+                    <small *ngIf="addForm.get('cuisine')?.errors?.['maxlength']" class="error-message">Max length is 30
+                        characters.</small>
+                    <small *ngIf="addForm.get('cuisine')?.errors?.['pattern']" class="error-message">Only text is
+                        allowed.</small>
+                </div>
+            </div>
+
+
+
+            <!-- Address -->
+            <div class="formFields">
+                <div class="formGroup">
+                    <label for="address">Address</label>
+                    <input id="address" formControlName="address" maxlength="250">
+
+                </div>
+                <div *ngIf="addForm.get('address')?.invalid && (addForm.get('address')?.touched )">
+                    <small *ngIf="addForm.get('address')?.errors?.['required']" class="error-message">Address is
+                        required.</small>
+                    <small *ngIf="addForm.get('address')?.errors?.['maxlength']" class="error-message">Max length is 250
+                        characters.</small>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- Operation Hour Starts -->
+                <div class="formFields">
+                    <div class="operationalTime">
+                        <label for="operationHourStarts">Operation Hour Starts</label>
+                        <input type="time" id="operationHourStarts" formControlName="operationHourStarts" maxlength="5">
+
+                    </div>
+                    <div
+                        *ngIf="addForm.get('operationHourStarts')?.invalid && (addForm.get('operationHourStarts')?.touched )">
+                        <small *ngIf="addForm.get('operationHourStarts')?.errors?.['required']"
+                            class="error-message">Operation Hour
+                            Starts is
+                            required.</small>
+                        <small *ngIf="addForm.get('operationHourStarts')?.errors?.['invalidHour']"
+                            class="error-message">Invalid
+                            hour
+                            format. Use
+                            24-hour
+                            format (HH:mm).</small>
+                    </div>
+
+                </div>
+                <!-- Operation Hour Ends -->
+                <div class="formFields">
+                    <div class="operationalTime">
+                        <label for="operationHourEnds">Operation Hour Ends</label>
+                        <input type="time" id="operationHourEnds" formControlName="operationHourEnds" maxlength="5">
+
+                    </div>
+                    <div
+                        *ngIf="addForm.get('operationHourEnds')?.invalid && (addForm.get('operationHourEnds')?.touched )">
+                        <small *ngIf="addForm.get('operationHourEnds')?.errors?.['required']"
+                            class="error-message">Operation Hour
+                            Ends
+                            is
+                            required.</small>
+                        <small *ngIf="addForm.get('operationHourEnds')?.errors?.['invalidHour']"
+                            class="error-message">Invalid hour
+                            format. Use
+                            24-hour
+                            format (HH:mm).</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="submitBtn">
+                <button (click)="onNext()">Save and Continue</button>&nbsp;&nbsp;
+                <button type="submit">Save</button>
+            </div>
+        </form>
+
+        <form [formGroup]="menuItemForm" *ngIf="next" (ngSubmit)="onSubmitMenuItems()">
+            <div class="title">
+                <h2>Enter the Menu</h2>
+            </div>
+            <div formArrayName="menuItems">
+                <div *ngFor="let item of menuItem.controls; let i = index" [formGroupName]="i">
+                    <div class="formFields">
+                        <div class="formGroup">
+                            <label for="itemName">Name:</label>
+                            <input id="itemName" formControlName="itemName" maxlength="250">
+                        </div>
+                        <div *ngIf="item.get('itemName')?.invalid && (item.get('itemName')?.touched)">
+                            <small *ngIf="item.get('itemName')?.errors?.['required']" class="error-message">
+                                Name is required.
+                            </small>
+                        </div>
+                    </div>
+                    <div class="formFields">
+                        <div class="formGroup">
+                            <label for="price">Price:</label>
+                            <input id="price" formControlName="price" maxlength="250">
+                        </div>
+                        <div *ngIf="item.get('price')?.invalid && (item.get('price')?.touched)">
+                            <small *ngIf="item.get('price')?.errors?.['required']" class="error-message">
+                                Price is required.
+                            </small>
+                        </div>
+                    </div>
+
+                    <div class="formFields">
+                        <div class="formGroup">
+                            <label for="category">Category:</label>
+                            <input id="category" formControlName="category" maxlength="250">
+                        </div>
+                        <div *ngIf="item.get('category')?.invalid && (item.get('category')?.touched)">
+                            <small *ngIf="item.get('category')?.errors?.['required']" class="error-message">
+                                Category is required.
+                            </small>
+                            <small *ngIf="item.get('category')?.errors?.['maxlength']" class="error-message">
+                                Max length is 250 characters.
+                            </small>
+                        </div>
+                    </div>
+                    <div class="submitBtn">
+                        <button type="button" (click)="toggleActive(i)">
+                            {{ menuItem.at(i).get('isActive')?.value ? 'Remove' : 'Activate Again' }}
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="submitBtn">
+                <button type="submit" style="width: 98%;">Submit</button>
+            </div>
+            <div class="fixedAddBtn">
+                <div type="button" (click)="addMenuItem()">
+                    <i class="fa-solid fa-plus"></i>
+                </div>
+            </div>
+        </form>
+
+
+    </div>
+</div>
